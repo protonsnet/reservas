@@ -1,0 +1,23 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/include/template.xhtml">
+
+	<ui:define name="conteudo">
+			
+		<h4> Nova Sala - <h:outputText value="#{usuarioMBean.usuarioLogado.login}" /> </h4>
+		
+		<h:messages />
+		<h:form>
+			<fieldset>
+				<p> Descrição </p> <p> <h:inputText value="#{salaMBean.sala.descricao}"/> </p>
+				<p> Status </p> <p> <h:inputText value="#{salaMBean.sala.status}"/> </p>
+				<p> 
+					<h:commandButton action="#{salaMBean.cadastrarSala}" value="Cadastrar"/>
+					<h:commandButton action="#{salaMBean.listarSala}" value="Listagem" immediate="true"/> 
+				</p>
+			</fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition>

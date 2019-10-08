@@ -1,0 +1,28 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/include/template.xhtml">
+
+	<ui:define name="conteudo">
+			
+		<h4> Nova Reserva - <h:outputText value="#{usuarioMBean.usuarioLogado.login}" /> </h4>
+		
+		<h:messages />
+		<h:form>
+			<fieldset>
+				<p> Descrição </p> <p> <h:inputText value="#{reservaMBean.material.descricao}"/> </p>
+				<p> Data da Reserva </p> 
+					 <p>
+					 <h:inputText value="#{reservaMBean.material.dataReserva}" id="data">
+							<f:convertDateTime pattern="dd/MM/yyyy" />
+						</h:inputText>
+					 </p>
+				<p> 
+					<h:commandButton action="#{reservaMBean.cadastrarReserva}" value="Cadastrar"/>
+					<h:commandButton action="#{reservaMBean.listarReserva}" value="Listagem" immediate="true"/> 
+				</p>
+			</fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition>

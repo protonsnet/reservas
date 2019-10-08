@@ -1,0 +1,31 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/include/template.xhtml">
+	<ui:define name="conteudo">
+		<h4> Listagem das Salas - <h:outputText value="#{usuarioMBean.usuarioLogado.login}" /></h4>
+	
+		<h:form>
+			<h:dataTable value="#{salaMBean.salasModel}" var="reserva">
+    			<h:column>
+    				<f:facet name="header">Descrição</f:facet>
+    				<h:outputText value="#{sala.descricao}"/>
+    			</h:column>
+    			<h:column>
+    				<f:facet name="header">Status</f:facet>
+    				<h:outputText value="#{sala.status}"/>
+    			</h:column>
+    			<h:column>
+    				<f:facet name="header">Reserva</f:facet>
+    				<h:outputText value="#{sala.reservaCadastro}"/>
+    			</h:column>
+				<h:column>
+					<h:commandButton 
+					action="#{salaMBean.removerSala}" value="Remover" />
+    			</h:column>
+			</h:dataTable>
+			<h:commandButton action="#{salaMBean.novoSala}"	value="Nova Sala" />
+		</h:form>
+	</ui:define>
+</ui:composition>>
